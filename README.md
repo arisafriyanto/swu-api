@@ -8,25 +8,25 @@ This API is designed for easy access and integration with STMIK Widya Utama Purw
 
 ## How to Install
 
-1. Clone repository with the following command:
+#### 1. Clone repository with the following command:
    
    ```bash
    git clone https://github.com/arisafriyanto/swu-api.git
    ```
     
-2. Move to the repository directory with the command:
+#### 2. Move to the repository directory with the command:
    
    ```bash
    cd swu-api
    ```
 
-3. Run the following command to install the depedency:
+#### 3. Run the following command to install the depedency:
 
    ```bash
    npm install
    ```
 
-4. Copy the `.env.example` file, rename it to `.env`, and edit the `.env` file in the main directory, making sure the configuration values are appropriate:
+#### 4. Copy the `.env.example` file, rename it to `.env` and edit the `.env` file in the main directory, making sure the configuration values are appropriate:
 
    ```bash
     PORT=8080
@@ -37,20 +37,26 @@ This API is designed for easy access and integration with STMIK Widya Utama Purw
     DB_NAME=YOUR_DB_NAME
    ```
   
-5. Start the API:
-    ```bash
-    npm run start
-    ```
+#### 5. Start the API:
+
+   ```bash
+   npm run start
+   ```
 
    or
 
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
    <br>
   
 ## Documentation
 
 This API uses Postman to documentation and test.
 
-You can download the Postman documentation <a href="https://documenter.getpostman.com/view/33657932/2sA3JGfjHi" target="_blank">here</a>
+You can download the Postman documentation [Postman Collection](https://documenter.getpostman.com/view/33657932/2sA3JGfjHi)
+
+## Contact
+
+For any inquiries or support, please contact the SWU API development team at [arisapriyanto.new@gmail.com](mailto:arisapriyanto.new@gmail.com).
+#### Thank you for using SWU API!
