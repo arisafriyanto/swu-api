@@ -10,9 +10,7 @@ const checkPhoneNumber = async (req, res, next) => {
     const { phone } = req.headers;
 
     if(!phone) {
-      throw new Error(
-        "Phone is required!"
-      );
+      throw new Error("Phone is required!");
     }
 
     const decryptPhone = decryptDataAES256Cbc(phone);
@@ -38,14 +36,19 @@ const checkPhoneNumber = async (req, res, next) => {
     next();
   } catch (error) {
     console.log(error);
-
+    
     let statusCode = 500;
-    if (error.message.includes("terdaftar")) {
+    let errorMessage = error.message;
+
+    if (error.code === 'ECONNREFUSED') {
+      statusCode = 503;
+      errorMessage = "Mohon maaf layanan sedang sibuk, silakan coba lagi nanti.";
+    }else if (error.message.includes("terdaftar")) {
       statusCode = 404;
     }
 
     return res.status(statusCode).json({
-      message: error.message,
+      message: errorMessage,
     });
   }
 };

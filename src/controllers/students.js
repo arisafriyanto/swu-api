@@ -9,9 +9,13 @@ const getStudentByPhone = async (req, res) => {
       data: row,
     });
   } catch (error) {
-    return res.status(500).json({
-      message: "Server Error",
-      serverMessage: error.message,
+    console.log(error);
+    const { statusCode, errorMessage } = helper.generateErrorMessage(error);
+
+    return res.status(statusCode).json({
+      status: "fail",
+      message: errorMessage,
+      data: [],
     });
   }
 };

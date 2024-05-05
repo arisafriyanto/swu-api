@@ -86,10 +86,11 @@ const getSchedules = async (req, res) => {
     return response;
   } catch (error) {
     console.log(error);
+    const { statusCode, errorMessage } = helper.generateErrorMessage(error);
 
-    return res.status(500).json({
+    return res.status(statusCode).json({
       status: "fail",
-      message: error.message,
+      message: errorMessage,
       data: [],
     });
   }
