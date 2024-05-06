@@ -40,7 +40,7 @@ const checkPhoneNumber = async (req, res, next) => {
     let statusCode = 500;
     let errorMessage = error.message;
 
-    if (error.code === 'ECONNREFUSED') {
+    if (error.code === 'ER_CON_COUNT_ERROR') {
       statusCode = 503;
       errorMessage = "Mohon maaf layanan sedang sibuk, silakan coba lagi nanti.";
     }else if (error.message.includes("terdaftar")) {
