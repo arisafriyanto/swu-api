@@ -1,0 +1,29 @@
+steps:
+  # Build the container image
+  - name: "gcr.io/cloud-builders/docker"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+        docker buildx build --platform linux/amd64 -t us-central1-docker.pkg.dev/$PROJECT_ID/swu/swu-api .
+  # Push the container image to Artifact Registry
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "us-central1-docker.pkg.dev/$PROJECT_ID/swu/swu-api"]
+  # Deploy container image to Cloud Run
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: gcloud
+    args:
+      - "run"
+      - "deploy"
+      - "swu-api"
+      - "--image"
+      - "us-central1-docker.pkg.dev/$PROJECT_ID/swu/swu-api"
+      - "--region"
+      - "us-central1"
+      - "--platform"
+      - "managed"
+      - "--allow-unauthenticated"
+      - "--port"
+      - "8080"
+images:
+  - "us-central1-docker.pkg.dev/$PROJECT_ID/swu/swu-api"
