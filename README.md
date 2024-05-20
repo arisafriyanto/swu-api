@@ -59,4 +59,4 @@ You can download the Postman documentation [Postman Collection](https://document
 ## Contact
 
 For any inquiries or support, please contact the SWU API development team at [arisapriyanto.new@gmail.com](mailto:arisapriyanto.new@gmail.com).
-#### Thank you for using SWU API!
+#### Thank you for using SWU API!!
