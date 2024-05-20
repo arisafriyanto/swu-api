@@ -22,9 +22,10 @@ const getCourseGrades = async (req, res) => {
       throw new Error("Maaf, tidak ada data mata kuliah yang tersedia saat ini 😌");
     }
 
-    result.map((item) => {
+    result.map((item, index) => {
       // item.nama = capitalizeWords(item.nama);
       item.nm_mk = helper.capitalizeWords(item.nm_mk);
+      item.no = index + 1;
     });
 
     const response = res.status(200).json({
@@ -75,7 +76,7 @@ const getCourseIPK = async (req, res) => {
     let totalSKS = 0;
 
     [...rows].forEach((item) => {
-      const nilai = convertGradeToNumeric(item.NILAI_FINAL);
+      const nilai = convertGradeToNumeric(item.NILAI);
       const sks = parseFloat(item.sks);
 
       const bobotKredit = nilai * sks;
@@ -89,12 +90,14 @@ const getCourseIPK = async (req, res) => {
 
     const ipk = totalBobotKredit / totalSKS;
     const formatIpk = ipk.toFixed(2);
+    // console.log(ipk);
 
     const response = res.status(200).json({
       status: "success",
       message: "Get IPK success.",
       data: {
         IPK: formatIpk,
+        SKS: totalSKS,
       },
     });
 

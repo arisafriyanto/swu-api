@@ -67,12 +67,18 @@ const getSchedules = async (req, res) => {
     }
 
     result.map((item) => {
-      const splitted = item.ket.split(" ");
-      const link = splitted[0].replace(/^https?:\/\//, "");
-      const passcode = splitted[splitted.length - 1];
+      if (item.ket) {
+        const splitted = item.ket.split(" ");
+        const link = splitted[0].replace(/^https?:\/\//, "");
 
-      item.link = link;
-      item.passcode = passcode;
+        item.link = link;
+
+        if (splitted.length > 1) {
+          const passcode = splitted[splitted.length - 1];
+          item.passcode = passcode;
+        }
+      }
+
       item.tgl_awal = moment(item.tgl_awal).locale("id").format("dddd, DD MMMM YYYY");
       item.nm_mk = helper.capitalizeWords(item.nm_mk);
     });

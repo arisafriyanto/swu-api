@@ -18,6 +18,8 @@ const getSchedulesToday = (NIM, thn_akdm, startDate) => {
   JOIN tb_jadwal jd ON krs.ID_JADWAL = jd.ID_JADWAL
   JOIN tb_jadwal_rinci jd_rnc ON jd.ID_JADWAL = jd_rnc.id_jadwal
   WHERE krs.NIM = ?
+  AND krs.th_akdm = '${thn_akdm}'
+  AND krs.KD_MK = jd.KD_MK
   AND jd.th_akdm = '${thn_akdm}'
   AND jd_rnc.th_akdm = '${thn_akdm}'
   AND jd_rnc.tgl = ?
@@ -43,6 +45,8 @@ const getSchedulesWeekly = (NIM, thn_akdm, startDate, endDate) => {
   JOIN tb_jadwal jd ON krs.ID_JADWAL = jd.ID_JADWAL
   JOIN tb_jadwal_rinci jd_rnc ON jd.ID_JADWAL = jd_rnc.id_jadwal
   WHERE krs.NIM = ?
+  AND krs.th_akdm = '${thn_akdm}'
+  AND krs.KD_MK = jd.KD_MK
   AND jd.th_akdm = '${thn_akdm}'
   AND jd_rnc.th_akdm = '${thn_akdm}'
   AND jd_rnc.tgl BETWEEN ? AND ?
