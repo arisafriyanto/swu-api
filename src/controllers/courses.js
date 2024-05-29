@@ -25,7 +25,7 @@ const getCourseGrades = async (req, res) => {
     result.map((item, index) => {
       // item.nama = capitalizeWords(item.nama);
       item.nm_mk = helper.capitalizeWords(item.nm_mk);
-      item.no = index + 1;
+      item.index = index + 1;
     });
 
     const response = res.status(200).json({
