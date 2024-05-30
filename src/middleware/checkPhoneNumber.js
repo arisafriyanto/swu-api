@@ -42,9 +42,15 @@ const checkPhoneNumber = async (req, res, next) => {
 
     if (error.code === 'ER_CON_COUNT_ERROR') {
       statusCode = 503;
-      errorMessage = "Mohon maaf layanan sedang sibuk, silakan coba lagi nanti.";
+      errorMessage = "Mohon maaf, sistem kami sedang sibuk saat ini. Silakan coba lagi dalam beberapa saat";
     }else if (error.message.includes("terdaftar")) {
       statusCode = 404;
+    }else if(error.code === "ECONNRESET") {
+      statusCode = 504;
+      errorMessage = "Mohon maaf, sistem kami sedang sibuk saat ini. Silakan coba lagi dalam beberapa saat";
+    }else if(error.code === "ER_SERVER_SHUTDOWN"){
+      statusCode = 500;
+      errorMessage = "Mohon maaf, sistem kami sedang sibuk saat ini. Silakan coba lagi dalam beberapa saat";
     }
 
     return res.status(statusCode).json({
