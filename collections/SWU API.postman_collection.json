@@ -1,0 +1,642 @@
+{
+	"info": {
+		"_postman_id": "21e17e1b-4e3d-42f3-9eb3-7ca80812da26",
+		"name": "SWU API",
+		"description": "SWU API provides access to important information for STMIK Widya Utama Purwokerto students. With this API, students can retrieve data such as current class schedules, Grade Point Average (GPA) values, course grade details, and information about campus locations.\n\nThis API is designed for easy access and integration with STMIK Widya Utama Purwokerto's internal systems as well as third-party applications that can improve students' academic experience. By using this API, users can quickly and easily access the information they need without having to go through time-consuming manual processes.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33657932"
+	},
+	"item": [
+		{
+			"name": "Students",
+			"item": [
+				{
+					"name": "Get Student By Phone",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "phone",
+								"value": "62895360759393",
+								"type": "text"
+							},
+							{
+								"key": "phone",
+								"value": "6282324673348",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "phone",
+								"value": "6285751748482",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/students",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Student By Phone",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "phone",
+										"value": "62895360759393",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://localhost:8080/students",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"students"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "114"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"72-TLdbzvyeqVo000DBNb1JicdkULk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 May 2024 13:23:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Get student success\",\n    \"data\": [\n        {\n            \"nama\": \"Aris Apriyanto\",\n            \"NIM\": \"STI202001884\",\n            \"NO_HP\": \"62895360759393\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Phone not valid",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "phone",
+										"value": "628888888888",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://localhost:8080/students",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"students"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "145"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"91-AYEBTBvM39706GgaHESSFUm+vxc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 May 2024 13:23:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Maaf, nomor Anda tidak terdaftar dalam sistem kami. Silahkan perbarui nomor WhatsApp Anda pada aplikasi MySwu dengan format 628xxx.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Courses",
+			"item": [
+				{
+					"name": "Get IPK",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "phone",
+								"value": "62895360759393",
+								"type": "text"
+							},
+							{
+								"key": "phone",
+								"value": "6282324673348",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "phone",
+								"value": "6285751748482",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/courses/ipk",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"courses",
+								"ipk"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get IPK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "phone",
+										"value": "62895360759393",
+										"type": "text"
+									},
+									{
+										"key": "phone",
+										"value": "6282324673348",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "phone",
+										"value": "6285751748482",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/courses/ipk",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"courses",
+										"ipk"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"51-fRu4FN7RFbfbGGvTbqRhgXPRut0\""
+								},
+								{
+									"key": "X-Cloud-Trace-Context",
+									"value": "f75d13ccb4cc15e11b11eafde73abb58"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 13:13:46 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Google Frontend"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Get IPK success.\",\n    \"data\": {\n        \"IPK\": \"3.71\",\n        \"SKS\": 139\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Course Grades",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "phone",
+								"value": "62895360759393",
+								"type": "text"
+							},
+							{
+								"key": "phone",
+								"value": "6282324673348",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "phone",
+								"value": "6285751748482",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/courses/grades?type=all",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"courses",
+								"grades"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "all"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Course Grades",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "phone",
+										"value": "62895360759393",
+										"type": "text"
+									},
+									{
+										"key": "phone",
+										"value": "6282324673348",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "phone",
+										"value": "6285751748482",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/courses/grades?type=all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"courses",
+										"grades"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "all"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"13f6-oHXVKD0plcStyjvXvOoYx0W9hUQ\""
+								},
+								{
+									"key": "X-Cloud-Trace-Context",
+									"value": "3a91cfda2e09017571efab59f805350b;o=1"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 13:13:53 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Google Frontend"
+								},
+								{
+									"key": "Content-Length",
+									"value": "5110"
+								},
+								{
+									"key": "Alt-Svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Get course grades success.\",\n    \"data\": [\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI107003\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Algorithma Dan Struktur Data\",\n            \"sks\": 4,\n            \"index\": 1\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI104BS03\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Arsitek Dan Organisasi Komputer\",\n            \"sks\": 3,\n            \"index\": 2\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI102BS07\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Bahasa Indonesia\",\n            \"sks\": 2,\n            \"index\": 3\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI102BS08\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Desain Grafis\",\n            \"sks\": 3,\n            \"index\": 4\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI103BS02\",\n            \"NILAI\": \"B\",\n            \"nm_mk\": \"Desktop Programming\",\n            \"sks\": 4,\n            \"index\": 5\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI107007\",\n            \"NILAI\": \"B\",\n            \"nm_mk\": \"English Conversation\",\n            \"sks\": 3,\n            \"index\": 6\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI102BS02\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"English For Business\",\n            \"sks\": 2,\n            \"index\": 7\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI102BS01\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"English For Computer\",\n            \"sks\": 2,\n            \"index\": 8\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI107BS01\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Etika Profesi & Bimbingan Karir\",\n            \"sks\": 2,\n            \"index\": 9\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI102BS06\",\n            \"NILAI\": \"B\",\n            \"nm_mk\": \"Interaksi Manusia Dan Komputer\",\n            \"sks\": 2,\n            \"index\": 10\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI106P202\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Iot\",\n            \"sks\": 4,\n            \"index\": 11\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI103BS03\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Jaringan Komputer\",\n            \"sks\": 3,\n            \"index\": 12\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI105BS01\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Jaringan Saraf Tiruan\",\n            \"sks\": 3,\n            \"index\": 13\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI101BS04\",\n            \"NILAI\": \"B\",\n            \"nm_mk\": \"Kalkulus\",\n            \"sks\": 2,\n            \"index\": 14\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI105BS08\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Keamanan Jaringan\",\n            \"sks\": 4,\n            \"index\": 15\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI105BS02\",\n            \"NILAI\": \"B\",\n            \"nm_mk\": \"Kecerdasan Buatan\",\n            \"sks\": 3,\n            \"index\": 16\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI103BS06\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Kewirausahaan\",\n            \"sks\": 2,\n            \"index\": 17\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI106P108\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Komputasi Awan\",\n            \"sks\": 4,\n            \"index\": 18\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI107006\",\n            \"NILAI\": \"B\",\n            \"nm_mk\": \"Komunikasi Data\",\n            \"sks\": 3,\n            \"index\": 19\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI103BS04\",\n            \"NILAI\": \"B\",\n            \"nm_mk\": \"Konsep Perangkat Keras\",\n            \"sks\": 3,\n            \"index\": 20\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI104BS06\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Kriptografi\",\n            \"sks\": 3,\n            \"index\": 21\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI106BS03\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Kuliah Kerja Lapangan\",\n            \"sks\": 2,\n            \"index\": 22\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI105BS03\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Logika Fuzzy\",\n            \"sks\": 2,\n            \"index\": 23\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI701009\",\n            \"NILAI\": \"B\",\n            \"nm_mk\": \"Manajemen Bisnis\",\n            \"sks\": 2,\n            \"index\": 24\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI107002\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Matematika\",\n            \"sks\": 3,\n            \"index\": 25\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI101BS10\",\n            \"NILAI\": \"B\",\n            \"nm_mk\": \"Metode Numerik.\",\n            \"sks\": 2,\n            \"index\": 26\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI106BS04\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Metodologi Penelitian\",\n            \"sks\": 2,\n            \"index\": 27\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI104BS07\",\n            \"NILAI\": \"B\",\n            \"nm_mk\": \"Mobile Programming\",\n            \"sks\": 4,\n            \"index\": 28\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI106P101\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Mobile Programming Lanjut\",\n            \"sks\": 4,\n            \"index\": 29\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI107010\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Paket Program Niaga\",\n            \"sks\": 4,\n            \"index\": 30\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI107008\",\n            \"NILAI\": \"B\",\n            \"nm_mk\": \"Pancasila & Kewarganegaraan\",\n            \"sks\": 2,\n            \"index\": 31\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI103BS05\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Pemrograman Bahasa Rakitan\",\n            \"sks\": 4,\n            \"index\": 32\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI104BS01\",\n            \"NILAI\": \"B\",\n            \"nm_mk\": \"Pemrograman Berorientasi Objek\",\n            \"sks\": 4,\n            \"index\": 33\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI107004\",\n            \"NILAI\": \"B\",\n            \"nm_mk\": \"Pengantar Teknologi Informasi\",\n            \"sks\": 2,\n            \"index\": 34\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI105BS07\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Pre-toefl\",\n            \"sks\": 2,\n            \"index\": 35\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI103BS01\",\n            \"NILAI\": \"B\",\n            \"nm_mk\": \"Rangkaian Digital\",\n            \"sks\": 3,\n            \"index\": 36\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI104BS02\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Rekayasa Perangkat Keras\",\n            \"sks\": 3,\n            \"index\": 37\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI102BS03\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Sistem Basis Data\",\n            \"sks\": 3,\n            \"index\": 38\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI104BS04\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Sistem Basis Data Lanjut\",\n            \"sks\": 4,\n            \"index\": 39\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI102BS09\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Sistem Berkas\",\n            \"sks\": 2,\n            \"index\": 40\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI105BS06\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Sistem Informasi Manajemen\",\n            \"sks\": 3,\n            \"index\": 41\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI102BS10\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Sistem Operasi\",\n            \"sks\": 3,\n            \"index\": 42\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI105BS04\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Sistem Penunjang Keputusan\",\n            \"sks\": 3,\n            \"index\": 43\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI104BS05\",\n            \"NILAI\": \"B\",\n            \"nm_mk\": \"Statistika Dan Probabilitas\",\n            \"sks\": 2,\n            \"index\": 44\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI107BS02\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Technopreneurship\",\n            \"sks\": 2,\n            \"index\": 45\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI105BS05\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Teori Bahasa Dan Automata\",\n            \"sks\": 3,\n            \"index\": 46\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI103BS07\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Web Programming\",\n            \"sks\": 4,\n            \"index\": 47\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI106P106\",\n            \"NILAI\": \"A\",\n            \"nm_mk\": \"Web Programming Lanjut\",\n            \"sks\": 4,\n            \"index\": 48\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Schedules",
+			"item": [
+				{
+					"name": "Get Schedules",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "phone",
+								"value": "62895360759393",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "phone",
+								"value": "6282324673348",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "phone",
+								"value": "6285751748482",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/schedules?date=weekly",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"schedules"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "today",
+									"disabled": true
+								},
+								{
+									"key": "date",
+									"value": "weekly"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Schedules Today",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "phone",
+										"value": "62895360759393",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/schedules?date=today",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"schedules"
+									],
+									"query": [
+										{
+											"key": "date",
+											"value": "today"
+										},
+										{
+											"key": "date",
+											"value": "weekly",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "812"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"32c-A9Kxn+5v8Ti2/8sWc3Jtphq+OdQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 May 2024 18:52:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Get today schedules successfully\",\n    \"data\": [\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI1103003\",\n            \"ID_JADWAL\": 54,\n            \"tgl_awal\": \"Senin, 06 Mei 2024\",\n            \"tgl_sd\": \"2024-05-06\",\n            \"jam_awal\": \"09.40\",\n            \"jam_akhir\": \"11.40\",\n            \"ruang\": \"R.2.1\",\n            \"nama\": \"RIANA SAFITRI M.Kom\",\n            \"nm_mk\": \"Jaringan Komputer\",\n            \"ket_perkuliahan\": \"Daring\",\n            \"ket\": \"https://ringkas.swu.ac.id/QEb6465 Passcode: 320657\",\n            \"link\": \"ringkas.swu.ac.id/QEb6465\",\n            \"passcode\": \"320657\"\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI1103002\",\n            \"ID_JADWAL\": 53,\n            \"tgl_awal\": \"Senin, 06 Mei 2024\",\n            \"tgl_sd\": \"2024-05-06\",\n            \"jam_awal\": \"13.00\",\n            \"jam_akhir\": \"14.40\",\n            \"ruang\": \"LAB2_x\",\n            \"nama\": \"M AKBAR SETIAWAN M.Kom\",\n            \"nm_mk\": \"Desktop Programming\",\n            \"ket_perkuliahan\": \"Daring\",\n            \"ket\": \"https://ringkas.swu.ac.id/QEb3452 Passcode: 320332\",\n            \"link\": \"ringkas.swu.ac.id/QEb3452\",\n            \"passcode\": \"320332\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Get Schedules Weekly",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "phone",
+										"value": "62895360759393",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/schedules?date=weekly",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"schedules"
+									],
+									"query": [
+										{
+											"key": "date",
+											"value": "today",
+											"disabled": true
+										},
+										{
+											"key": "date",
+											"value": "weekly"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1550"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"60e-kfy9XUZ+4TK51SUC35FpHpSRrQo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 May 2024 13:24:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Get weekly schedules successfully\",\n    \"data\": [\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI1103003\",\n            \"ID_JADWAL\": 54,\n            \"tgl_awal\": \"Senin, 06 Mei 2024\",\n            \"tgl_sd\": \"2024-05-06\",\n            \"jam_awal\": \"09.40\",\n            \"jam_akhir\": \"11.40\",\n            \"ruang\": \"R.2.1\",\n            \"nama\": \"RIANA SAFITRI M.Kom\",\n            \"nm_mk\": \"Jaringan Komputer\",\n            \"ket_perkuliahan\": \"Daring\",\n            \"ket\": \"https://ringkas.swu.ac.id/QEb6465 Passcode: 320657\",\n            \"link\": \"ringkas.swu.ac.id/QEb6465\",\n            \"passcode\": \"320657\"\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI1103002\",\n            \"ID_JADWAL\": 53,\n            \"tgl_awal\": \"Senin, 06 Mei 2024\",\n            \"tgl_sd\": \"2024-05-06\",\n            \"jam_awal\": \"13.00\",\n            \"jam_akhir\": \"14.40\",\n            \"ruang\": \"LAB2_x\",\n            \"nama\": \"M AKBAR SETIAWAN M.Kom\",\n            \"nm_mk\": \"Desktop Programming\",\n            \"ket_perkuliahan\": \"Daring\",\n            \"ket\": \"https://ringkas.swu.ac.id/QEb3452 Passcode: 320332\",\n            \"link\": \"ringkas.swu.ac.id/QEb3452\",\n            \"passcode\": \"320332\"\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI1103003\",\n            \"ID_JADWAL\": 54,\n            \"tgl_awal\": \"Rabu, 08 Mei 2024\",\n            \"tgl_sd\": \"2024-05-08\",\n            \"jam_awal\": \"09.40\",\n            \"jam_akhir\": \"11.40\",\n            \"ruang\": \"R.2.1\",\n            \"nama\": \"RIANA SAFITRI M.Kom\",\n            \"nm_mk\": \"Jaringan Komputer\",\n            \"ket_perkuliahan\": \"Daring\",\n            \"ket\": \"https://ringkas.swu.ac.id/QEb6465 Passcode: 320657\",\n            \"link\": \"ringkas.swu.ac.id/QEb6465\",\n            \"passcode\": \"320657\"\n        },\n        {\n            \"NIM\": \"STI202001884\",\n            \"KD_MK\": \"STI1103002\",\n            \"ID_JADWAL\": 53,\n            \"tgl_awal\": \"Kamis, 09 Mei 2024\",\n            \"tgl_sd\": \"2024-05-09\",\n            \"jam_awal\": \"13.00\",\n            \"jam_akhir\": \"14.40\",\n            \"ruang\": \"LAB2_x\",\n            \"nama\": \"M AKBAR SETIAWAN M.Kom\",\n            \"nm_mk\": \"Desktop Programming\",\n            \"ket_perkuliahan\": \"Daring\",\n            \"ket\": \"https://ringkas.swu.ac.id/QEb3452 Passcode: 320332\",\n            \"link\": \"ringkas.swu.ac.id/QEb3452\",\n            \"passcode\": \"320332\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
